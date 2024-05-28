@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getUsers(callback) {
+            let url = "www.google.com";
+           
+            setTimeout(() => {
+                let users = ["User1", "User2", "User3"]; 
+                callback(users);
+            }, 1000); 
+        }
+
+        function getPost(users, callback) {
+            let url = "www.google.com";
+           
+            setTimeout(() => {
+                let posts = users.map(user => ({ user: user, post: "Post content for " + user }));
+                callback(posts);
+            }, 1000); 
+        }
+
+        setTimeout(() => {
+            getUsers((users) => {
+                console.log(users[0]);
+
+                getPost(users, (posts) => {
+                    console.log(posts);
+                });
+            });
+        }, 0);
+    </script>
+</body>
+</html>

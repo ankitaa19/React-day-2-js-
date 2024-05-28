@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function getUsers(){
+
+            return new Promise((resolve,reject)=>{
+                let users =[{id:1,username:"shikha"},{id:2,username:"ankita"}]
+                if(users!== null)
+                {
+                    resolve(users)
+                }
+                else{
+
+                    reject(new Error("unable to fetch posts"))
+                }
+            })
+
+        }
+
+        function getPosts(posts){
+            return new Promise((resolve,reject)=>{
+                let users =[{id:1,username:"shikha"},{id:2,username:"ankita"}]
+                if(users!== null)
+                {
+                    resolve(posts)
+                }
+                else{
+
+                    reject(new Error("unable to fetch posts"))
+                }
+            })
+
+
+        }
+
+        getUsers()
+        .then((users)=>{
+            console.log(users)
+
+            return getPosts(users[0])
+            .then((posts)=>{
+                console.log(posts)
+                
+            })
+            .catch((error)=>{
+                cosole.log(error)
+            })
+        })
+    </script>
+</body>
+</html>

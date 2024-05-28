@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //Promises
+
+        let p = new Promise((resolve,reject)=>{
+
+            let i =1
+            if(i===1)
+            {
+                resolve("All Good")
+            }
+            else
+            {
+                reject("You always do this")
+            }
+        })
+
+        p
+        .then((msg)=>{
+            comsole.log(msg)
+        })
+
+        .catch((error)=>{
+            comsole.log(error)
+        })
+
+
+    </script>
+</body>
+</html>
